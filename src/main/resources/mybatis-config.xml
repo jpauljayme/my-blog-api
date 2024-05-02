@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    <properties resource="dev/mayhm/personalblog/application.properties">-->
+<!--        <property name="username" value="johnpauljayme"/>-->
+<!--        <property name="password" value=""/>-->
+<!--        <property name="url" value="jdbc:postgresql://localhost:5432/blog"/>-->
+<!--        <property name="driver" value="org.postgresql.Driver"/>-->
+<!--    </properties>-->
+
+    <settings>
+        <!-- Enable auto-mapping of column names to JavaBean property names -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+
+    <!-- Define type aliases for MyBatis mappers -->
+    <typeAliases>
+        <typeAlias alias="Post" type="dev.mayhm.blog.model.Post" />
+        <!-- Add more type aliases as needed -->
+    </typeAliases>
+
+    <!-- Specify mapper locations -->
+    <mappers>
+        <mapper resource="./mappers/PostMapper.xml" />
+        <!-- Add more mapper locations as needed -->
+    </mappers>
+</configuration>

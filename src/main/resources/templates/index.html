@@ -1,22 +1,59 @@
-<!--<!DOCTYPE html>-->
+<!DOCTYPE html>
 
-<!--<html xmlns:th="https://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="utf-8"/>-->
-<!--    <title>My Personal Blog</title>-->
-<!--    <meta name="author" content="John Paul Jayme"/>-->
-<!--    <meta name="description" content="My personal blog, engulfing my idiosyncracies-->
-<!-- concerning the world, my love for the minuteness of the day, the power of literature-->
-<!-- inhabiting the landscapes of my mind, and the power programming has given me."/>-->
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>My Personal Blog</title>
+    <meta name="author" content="John Paul Jayme"/>
+    <meta name="description" content="My personal blog, engulfing my idiosyncracies
+ concerning the world, my love for the minuteness of the day, the power of literature
+ inhabiting the landscapes of my mind, and the power programming has given me."/>
 
-<!--</head>-->
-<!--<body>-->
+</head>
+<body hx-boost="true">
+<div class='wrapper'>
+    <header>
+        <h1>The Mayhm Review</h1>
+        <h2>Reviews on Literature, Film, and Music</h2>
+    </header>
 
-<!--<h2 th:text="#{welcome}">Welcome</h2>-->
-<!--<p>-->
-<!--    <span th:text="${message}">Hello</span><br/>-->
-<!--    <span th:text="${time}">21:00</span>-->
-<!--</p>-->
-<!--</body>-->
-<!--</html>-->
-<h1>hello world</h1>
+    <nav>
+        <div class="nav__content">
+            <span onclick="closeNav()">Close</span>
+            <a href=''>About</a>
+            <a href=''>Github</a>
+        </div>
+    </nav>
+    <span onclick="openNav()">Open</span>
+    <main hx-get="http://localhost:8083/blog" hx-trigger="load">
+        <!-- <article>
+            <div id="one">
+                <a href='' hx-target="body">
+                    Hunger by Knut Hamsun
+                </a>
+            </div>
+            <h3>April 29, 2024</h3>
+        </article>
+        <article>
+            <div>
+                <a href=''>
+                    Hunger by Knut Hamsun
+                </a>
+            </div>
+            <h3>April 29, 2024</h3>
+        </article>
+        <article>
+            <div>
+                <a href=''>
+                    Hunger by Knut Hamsun
+                </a>
+            </div>
+            <h3>April 29, 2024</h3>
+        </article> -->
+    </main>
+    <footer>
+        Footer
+    </footer>
+</div>
+</body>
+</html>

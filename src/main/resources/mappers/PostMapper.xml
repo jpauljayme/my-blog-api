@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.mayhm.blog.mapper.PostMapper">
+    <select id="getAllPosts" resultType="Post">
+        SELECT * FROM tbl_post
+    </select>
+
+    <select id="findPostByTitle" parameterType="String" resultType="Post">
+        SELECT * FROM tbl_post WHERE title = #{title}
+    </select>
+
+    <select id="countAllPosts"  resultType="int">
+        SELECT count(*) from tbl_post
+    </select>
+
+    <insert id="insertPost" parameterType="Post">
+        INSERT INTO tbl_post (title, author, date_created, date_updated, body)
+        VALUES (#{title}, #{author}, #{dateCreated}, #{dateUpdated}, #{body})
+    </insert>
+    <!-- Other SQL queries -->
+</mapper>
