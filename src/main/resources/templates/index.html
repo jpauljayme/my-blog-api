@@ -8,7 +8,7 @@
     <meta name="description" content="My personal blog, engulfing my idiosyncracies
  concerning the world, my love for the minuteness of the day, the power of literature
  inhabiting the landscapes of my mind, and the power programming has given me."/>
-
+    <link rel="stylesheet" type="text/css" th:href="@{css/index.css}" />
 </head>
 <body hx-boost="true">
 <div class='wrapper'>
@@ -19,37 +19,22 @@
 
     <nav>
         <div class="nav__content">
-            <span onclick="closeNav()">Close</span>
+<!--            <span onclick="closeNav()">Close</span>-->
+            <span>Close</span>
             <a href=''>About</a>
             <a href=''>Github</a>
         </div>
     </nav>
     <span onclick="openNav()">Open</span>
     <main hx-get="http://localhost:8083/blog" hx-trigger="load">
-        <!-- <article>
-            <div id="one">
-                <a href='' hx-target="body">
-                    Hunger by Knut Hamsun
-                </a>
-            </div>
-            <h3>April 29, 2024</h3>
-        </article>
-        <article>
-            <div>
-                <a href=''>
-                    Hunger by Knut Hamsun
-                </a>
-            </div>
-            <h3>April 29, 2024</h3>
-        </article>
-        <article>
-            <div>
-                <a href=''>
-                    Hunger by Knut Hamsun
-                </a>
-            </div>
-            <h3>April 29, 2024</h3>
-        </article> -->
+        <div th:each="post : ${posts}">
+            <article>
+                <div>
+                    <h2 th:text="${post.title}">Dummy title</h2>
+                </div>
+                <h3 th:text="${post.dateCreated}">Current date</h3>
+            </article>
+        </div>
     </main>
     <footer>
         Footer
