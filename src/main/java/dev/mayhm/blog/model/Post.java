@@ -1,6 +1,7 @@
 package dev.mayhm.blog.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Post {
 
@@ -11,9 +12,8 @@ public class Post {
     LocalDate dateUpdated;
     String body;
 
-    public Post(int id, String title, String author,
+    public Post(String title, String author,
                 String body) {
-        this.id = id;
         this.title = title;
         this.author = author;
         this.dateCreated = LocalDate.now();
@@ -69,5 +69,30 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return id == post.id && Objects.equals(title, post.title) && Objects.equals(author, post.author) && Objects.equals(dateCreated, post.dateCreated) && Objects.equals(dateUpdated, post.dateUpdated) && Objects.equals(body, post.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, author, dateCreated, dateUpdated, body);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", dateCreated=" + dateCreated +
+                ", dateUpdated=" + dateUpdated +
+                ", body='" + body + '\'' +
+                '}';
     }
 }

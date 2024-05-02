@@ -10,10 +10,10 @@ import java.util.Optional;
 public interface PostMapper {
 
     List<Post> getAllPosts();
-
     Optional<Post> findPostByTitle(String title);
+    int countAllPosts();
     void insertPost(Post post);
 
-    int countAllPosts();
+
 
 }
