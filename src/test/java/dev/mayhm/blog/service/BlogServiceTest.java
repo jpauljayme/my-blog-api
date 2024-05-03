@@ -11,7 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.mockito.BDDMockito.*;
 import static org.assertj.core.api.Assertions.*;
+
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 public class BlogServiceTest {
@@ -23,7 +25,7 @@ public class BlogServiceTest {
     BlogService blogService;
 
     @Test
-    public void whenGetAllPosts_thenReturnAllPosts(){
+    public void whenGetAllPosts_thenReturnAllPosts() {
 
         List<Post> mockedList = List.of(
                 new Post(
@@ -43,10 +45,34 @@ public class BlogServiceTest {
 
         then(postMapper)
                 .should()
-                        .getAllPosts();
+                .getAllPosts();
 
         assertThat(actualAllPosts)
                 .isEqualTo(mockedList);
+
+    }
+
+    @Test
+    public void givenPostId_thenGetPostById_shouldReturnExistingPost() {
+
+        Post mockedPost = new Post(
+                "First Title",
+                "John Paul Jayme",
+                "This is a test body.");
+
+        given(postMapper.getPostById(anyInt()))
+                .willReturn(Optional.of(mockedPost));
+
+        Optional<Post> actualPost = blogService.getPostById(mockedPost.getId());
+
+        then(postMapper)
+                .should()
+                .getPostById(anyInt());
+
+        assertThat(actualPost)
+                .isPresent();
+        assertThat(actualPost.get())
+                .isEqualTo(mockedPost);
 
     }
 }
