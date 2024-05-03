@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21
-RUN mkdir /opt/app
-COPY japp.jar /opt/app
-CMD ["java", "-jar", "/opt/app/japp.jar"]
+COPY --from=build /target/blog-0.0.1-SNAPSHOT.jar blog.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","blog.jar"]
