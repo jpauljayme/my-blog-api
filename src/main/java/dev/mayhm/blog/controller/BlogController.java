@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Map;
 import java.util.Optional;
@@ -28,6 +29,7 @@ public class BlogController {
     String getBlogPosts(Model model) {
 
         model.addAttribute("posts", blogService.getAllPosts());
+
         return "index";
     }
 
@@ -41,12 +43,17 @@ public class BlogController {
         }else{
             model.addAttribute("error", "Post not found");
         }
-        
-        return "";
+
+        return "post";
     }
 
     @GetMapping(path = "/")
-    String emptyPath(Map<String, Object> model) {
+    String emptyPath() {
+        return "redirect:/blog";
+    }
+
+    @GetMapping(path = "/home")
+    String home(Model model) {
         return "redirect:/blog";
     }
 }
