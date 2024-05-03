@@ -15,5 +15,5 @@ public interface PostMapper {
     void insertPost(Post post);
 
 
-
+    Optional<Post> getPostById(int id);
 }

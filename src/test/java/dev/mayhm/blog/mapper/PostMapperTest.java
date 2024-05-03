@@ -42,4 +42,15 @@ public class PostMapperTest {
                 .isEqualTo(newPost.getDateCreated());
 
     }
+
+    @Test
+    void givenPostId_thenGetPostById_shouldReturnExistingPost(){
+
+        int postId = 6;
+        Optional<Post> postById = postMapper.getPostById(postId);
+        assertThat(postById)
+                .isPresent();
+        assertThat(postById.get().getId())
+                .isEqualTo(postId);
+    }
 }

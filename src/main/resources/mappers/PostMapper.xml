@@ -5,6 +5,10 @@
         SELECT * FROM tbl_post
     </select>
 
+    <select id="getPostById" parameterType="int" resultType="Post">
+        SELECT * FROM tbl_post WHERE id = #{id}
+    </select>
+
     <select id="findPostByTitle" parameterType="String" resultType="Post">
         SELECT * FROM tbl_post WHERE title = #{title}
     </select>

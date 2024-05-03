@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BlogService {
@@ -23,5 +24,9 @@ public class BlogService {
 
     public void createPost(Post post){
         postMapper.insertPost(post);
+    }
+
+    public Optional<Post> getPostById(int id) {
+        return postMapper.getPostById(id);
     }
 }
