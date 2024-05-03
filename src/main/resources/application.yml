@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: postgres://blog_zy7h_user:EpTLw5sWxbtSeQwMxOcW0gy5gRHe3y9e@dpg-coqf214f7o1s73ehhgng-a/blog_zy7h
+    url: jdbc:postgresql://dpg-coqf214f7o1s73ehhgng-a/blog_zy7h
+#    url: jdbc:postgresql://dpg-coqf214f7o1s73ehhgng-a.singapore-postgres.render.com/blog_zy7h
     username: blog_zy7h_user
     password: EpTLw5sWxbtSeQwMxOcW0gy5gRHe3y9e
     driver-class-name: org.postgresql.Driver
