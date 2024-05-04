@@ -12,10 +12,10 @@ public class Post {
     LocalDate dateUpdated;
     String body;
 
-    public Post(String title, String author,
+    public Post(String title,
                 String body) {
         this.title = title;
-        this.author = author;
+        this.author = "John Paul Jayme";
         this.dateCreated = LocalDate.now();
         this.dateUpdated = LocalDate.now();
         this.body = body;

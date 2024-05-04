@@ -45,12 +45,24 @@ public class BlogController {
         return "post";
     }
 
-    @PostMapping()
-    String createBlog(@RequestBody Post post){
+
+
+    @PostMapping("/blog")
+    String createPost(@ModelAttribute Post post,
+                      Model model){
         blogService.createPost(post);
 
-        return "";
+        model.addAttribute("message",
+                "Successfully created blog post!");
+        return "redirect:/blog";
     }
+
+    @GetMapping("/blog/createPost")
+    String createPostView(Model model){
+        return "createPost";
+    }
+
+
 
     @GetMapping(path = "/")
     String emptyPath() {

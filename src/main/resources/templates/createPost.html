@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>My Personal Blog</title>
+    <meta name="author" content="John Paul Jayme"/>
+    <meta name="description" content="My personal blog, engulfing my idiosyncracies
+ concerning the world, my love for the minuteness of the day, the power of literature
+ inhabiting the landscapes of my mind, and the power programming has given me."/>
+    <link rel="stylesheet" type="text/css" th:href="@{css/createpost.css}" />
+</head>
+<body>
+    <form hx-post="/blog"
+          hx-target="body"
+          id="create__post__container"
+    >
+        <div>
+            <label>Title:</label>
+            <input id="title" name="title" placeholder="Input title" required/>
+        </div>
+
+        <div id="create__post_container__content">
+            <label>Content:</label>
+            <textarea id="body"
+                      name="body"
+                      placeholder="Input content"
+                      required
+                      cols="90"
+                      rows="50"
+            ></textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit"/>
+            <button hx-get="/home"
+                    hx-target="body"
+            >
+                Go back
+        </button>
+        </div>
+        <!--    <p th:utext="${message}"></p>-->
+    </form>
+</body>
+</html>
