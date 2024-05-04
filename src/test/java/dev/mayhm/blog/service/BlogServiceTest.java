@@ -75,4 +75,22 @@ public class BlogServiceTest {
                 .isEqualTo(mockedPost);
 
     }
+
+    @Test
+    void givenNewPost_thenInsertPost_shouldBePopulatedInDb(){
+        Post newPost = new Post("Dummy title",
+                "Dummy Author",
+                "Dummy Body...");
+
+        willDoNothing()
+                .given(postMapper)
+                .insertPost(any(Post.class));
+
+        blogService.createPost(newPost);
+
+        then(postMapper)
+                .should()
+                .insertPost(any());
+
+    }
 }

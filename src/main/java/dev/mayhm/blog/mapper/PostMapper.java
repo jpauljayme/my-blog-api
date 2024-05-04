@@ -14,6 +14,5 @@ public interface PostMapper {
     int countAllPosts();
     void insertPost(Post post);
 
-
     Optional<Post> getPostById(int id);
 }
