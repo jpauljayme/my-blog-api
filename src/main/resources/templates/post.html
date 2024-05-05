@@ -11,11 +11,16 @@
 
 </head>
 <body>
-<article>
-    <h2 th:text="${post.title}">Dummy title</h2>
-    <h4 th:text="${post.dateUpdated}"></h4>
-    <p th:text="${post.body}">Body...</p>
-    <button hx-get="/home" hx-target="body">Home</button>
+<article id="post__wrapper">
+    <div>
+        <img th:src="${post_url}"
+             class="post__img"/>
+    </div>
+    <div><h2 th:text="${post.title}">Dummy title</h2></div>
+
+    <div><h4 th:text="${post.dateUpdated}"></h4></div>
+    <div><p th:text="${post.body}">Body...</p></div>
+    <div><button hx-get="/home" hx-target="body">Home</button></div>
 </article>
 </body>
 </html>

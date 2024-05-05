@@ -38,6 +38,7 @@ public class BlogController {
 
         if(post.isPresent()){
             model.addAttribute("post", post.get());
+            model.addAttribute("post_url", "https://dyz7w548psqvl.cloudfront.net/book_notes.jpg");
         }else{
             model.addAttribute("error", "Post not found");
         }
