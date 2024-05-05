@@ -16,31 +16,44 @@
           hx-target="body"
           id="create__post__container"
     >
-        <div>
+        <div id="title_label">
             <label>Title:</label>
+        </div>
+        <div id="title_input">
             <input id="title" name="title" placeholder="Input title" required/>
         </div>
 
-        <div id="create__post_container__content">
-            <label>Content:</label>
+        <div id="image_label">
+            <label>S3 Bucket Image Path:</label>
+
+        </div>
+        <div id="image_input">
+            <input id="imagePath" name="imagePath" placeholder="Input image path" required/>
+        </div>
+
+        <div id="content_label">
+
+        </div>
+        <div id="content_textarea">
+
             <textarea id="body"
                       name="body"
                       placeholder="Input content"
                       required
-                      cols="90"
-                      rows="50"
+                      rows="30"
             ></textarea>
         </div>
 
-        <div>
-            <input type="submit" value="Submit"/>
+        <div id="button_group">
+
             <button hx-get="/home"
                     hx-target="body"
             >
                 Go back
-        </button>
+            </button>
+
+            <input type="submit" value="Submit"/>
         </div>
-        <!--    <p th:utext="${message}"></p>-->
     </form>
 </body>
 </html>

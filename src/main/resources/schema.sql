@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS tbl_post(
     author              VARCHAR(40) NOT NULL,
     date_created        DATE NOT NULL,
     date_updated        DATE NOT NULL,
-    body                TEXT NOT NULL
+    body                TEXT NOT NULL,
+    image_path          VARCHAR(150)
 );
