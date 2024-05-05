@@ -5,17 +5,20 @@ import java.util.Objects;
 
 public class Post {
 
-    int id;
-    String title;
-    String author;
-    LocalDate dateCreated;
-    LocalDate dateUpdated;
-    String body;
+    private int id;
+    private String title;
+    private String author;
+    private LocalDate dateCreated;
+    private LocalDate dateUpdated;
+    private String body;
+    private String imagePath;
 
-    public Post(String title, String author,
+
+
+    public Post(String title,
                 String body) {
         this.title = title;
-        this.author = author;
+        this.author = "John Paul Jayme";
         this.dateCreated = LocalDate.now();
         this.dateUpdated = LocalDate.now();
         this.body = body;
@@ -69,6 +72,14 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override

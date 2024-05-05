@@ -1,0 +1,46 @@
+#create__post__container{
+    display:grid;
+    grid-template-rows: 50px 50px 1fr 50px;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+    'title_label title_input'
+    'image_label image_input'
+    'content_label content_textarea'
+    'button_group button_group';
+
+    gap: 5px;
+    align-items: center;
+}
+
+#title_label{
+    grid-area: title_label;
+}
+#title_input{
+    grid-area: title_input;
+}
+#image_label{
+    grid-area: image_label;
+}
+#image_input{
+    grid-area: image_input;
+}
+#content_label{
+    grid-area: content_label;
+}
+
+#content_textarea{
+    grid-area: content_textarea;
+    padding-right: 10px;
+}
+
+#content_textarea textarea {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 300px;
+    padding: 10px;
+ }
+
+#button_group{
+    grid-area: button_group;
+    justify-self: center;
+}

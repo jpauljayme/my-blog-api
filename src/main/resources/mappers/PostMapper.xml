@@ -18,8 +18,8 @@
     </select>
 
     <insert id="insertPost" parameterType="Post">
-        INSERT INTO tbl_post (title, author, date_created, date_updated, body)
-        VALUES (#{title}, #{author}, #{dateCreated}, #{dateUpdated}, #{body})
+        INSERT INTO tbl_post (title, author, date_created, date_updated, body, image_path)
+        VALUES (#{title}, #{author}, #{dateCreated}, #{dateUpdated}, #{body}, #{imagePath})
     </insert>
     <!-- Other SQL queries -->
 </mapper>

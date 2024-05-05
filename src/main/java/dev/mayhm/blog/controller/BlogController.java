@@ -4,6 +4,7 @@ package dev.mayhm.blog.controller;
 import dev.mayhm.blog.model.Post;
 import dev.mayhm.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,9 @@ import java.util.Optional;
 public class BlogController {
 
     private final BlogService blogService;
+
+    @Value("${cloudfront.url}")
+    private String cloudfrontUrl;
 
     @Autowired
     public BlogController(BlogService blogService) {
@@ -37,7 +41,9 @@ public class BlogController {
         Optional<Post> post = blogService.getPostById(id);
 
         if(post.isPresent()){
-            model.addAttribute("post", post.get());
+            Post actual = post.get();
+            model.addAttribute("post", actual );
+            model.addAttribute("post_url", cloudfrontUrl + "/" + actual.getImagePath() );
         }else{
             model.addAttribute("error", "Post not found");
         }
@@ -45,12 +51,24 @@ public class BlogController {
         return "post";
     }
 
-    @PostMapping()
-    String createBlog(@RequestBody Post post){
+
+
+    @PostMapping("/blog")
+    String createPost(@ModelAttribute Post post,
+                      Model model){
         blogService.createPost(post);
 
-        return "";
+        model.addAttribute("message",
+                "Successfully created blog post!");
+        return "redirect:/blog";
     }
+
+    @GetMapping("/blog/createPost")
+    String createPostView(Model model){
+        return "createPost";
+    }
+
+
 
     @GetMapping(path = "/")
     String emptyPath() {

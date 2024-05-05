@@ -29,7 +29,6 @@ public class PostMapperTest {
 
         Post newPost = new Post(
                 "Hunger by Knut Hamsun",
-                "John Paul Jayme",
                 "This is a test body.");
 
         Optional<Post> actualPost = postMapper.findPostByTitle("Hunger by Knut Hamsun");
