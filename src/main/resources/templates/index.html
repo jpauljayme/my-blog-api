@@ -3,7 +3,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <title>My Personal Blog</title>
+    <title>Mayhm's Review</title>
     <meta name="author" content="John Paul Jayme"/>
     <meta name="description" content="My personal blog, engulfing my idiosyncracies
  concerning the world, my love for the minuteness of the day, the power of literature
@@ -12,17 +12,18 @@
     <script defer src="/js/htmx.min.js"></script>
     <script defer src="/js/script.js"></script>
     <link rel="stylesheet" type="text/css" th:href="@{css/index.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{css/createpost.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{css/post.css}" />
 </head>
 <body hx-boost="true">
 <div class='wrapper'>
     <header>
-        <h1 hx-get="/home" hx-target="body">The Mayhm Review</h1>
-        <h2>Reviews on Literature, Film, and Music</h2>
+        <h1 hx-get="/home" hx-target="body">Mayhm's Musings</h1>
+        <h2>Literature, Film, Music and the Consciousness!</h2>
     </header>
 
     <nav>
         <div class="nav__content">
-<!--            <span onclick="closeNav()">Close</span>-->
             <span onclick="closeNav()">Close</span>
             <a href=''>About</a>
             <a href=''>Github</a>
@@ -30,6 +31,9 @@
     </nav>
     <span onclick="openNav()">Open</span>
     <main>
+        <button hx-get="/blog/createPost"
+            hx-target="main"
+        >Create a new blog post!</button>
         <div th:each="post : ${posts}">
             <article>
                 <div>
@@ -38,7 +42,7 @@
                         hx-target="main"
                     >Dummy title</h2>
                 </div>
-                <h3 th:text="${post.dateCreated}">Current date</h3>
+                <h4 th:text="${post.dateCreated}">Current date</h4>
             </article>
         </div>
     </main>

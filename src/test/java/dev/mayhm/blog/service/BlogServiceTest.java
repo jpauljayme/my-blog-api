@@ -30,11 +30,9 @@ public class BlogServiceTest {
         List<Post> mockedList = List.of(
                 new Post(
                         "First Title",
-                        "John Paul Jayme",
                         "This is a test body."),
                 new Post(
                         "Second title",
-                        "John Paul Jayme",
                         "This is a test body.")
         );
 
@@ -57,7 +55,6 @@ public class BlogServiceTest {
 
         Post mockedPost = new Post(
                 "First Title",
-                "John Paul Jayme",
                 "This is a test body.");
 
         given(postMapper.getPostById(anyInt()))
@@ -73,6 +70,23 @@ public class BlogServiceTest {
                 .isPresent();
         assertThat(actualPost.get())
                 .isEqualTo(mockedPost);
+
+    }
+
+    @Test
+    void givenNewPost_thenInsertPost_shouldBePopulatedInDb(){
+        Post newPost = new Post("Dummy title",
+                "Dummy Body...");
+
+        willDoNothing()
+                .given(postMapper)
+                .insertPost(any(Post.class));
+
+        blogService.createPost(newPost);
+
+        then(postMapper)
+                .should()
+                .insertPost(any());
 
     }
 }
