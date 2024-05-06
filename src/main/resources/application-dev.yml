@@ -1,9 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-coqf214f7o1s73ehhgng-a/blog_zy7h
-#    url: jdbc:postgresql://dpg-coqf214f7o1s73ehhgng-a.singapore-postgres.render.com/blog_zy7h
-    username: blog_zy7h_user
-    password: EpTLw5sWxbtSeQwMxOcW0gy5gRHe3y9e
+    url: jdbc:postgresql://dpg-cordr4q0si5c739fm680-a.singapore-postgres.render.com/blog_jly6
+    username: mayhm
+    password: fERM5p8Rt35cFCHo0zAjHeljbFrbm7Kn
     driver-class-name: org.postgresql.Driver
   sql:
     init:
