@@ -7,9 +7,9 @@ spring:
   sql:
     init:
       mode: always
-  jpa:
-    hibernate:
-      ddl-auto: update
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
 
 server:
   port: 8083
