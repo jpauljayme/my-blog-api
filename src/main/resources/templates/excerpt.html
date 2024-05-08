@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>The Fig Tree</title>
+    <meta name="author" content="John Paul Jayme"/>
+    <meta name="description" content="My personal blog, engulfing my idiosyncracies
+ concerning the world, my love for the minuteness of the day, the power of literature
+ inhabiting the landscapes of my mind, and the power programming has given me."/>
+</head>
+<body>
+<div class='wrapper'>
+    <article class="excerpt">
+        <div>
+            <h2 th:text="${posts[0].title}"
+                th:hx-get="@{/blog/{id}(id=${posts[0].id})}"
+                hx-target="main"
+            >Dummy title</h2>
+        </div>
+        <h4 th:text="${#strings.substring(posts[0].body, 0, 100)} + '...'"></h4>
+    </article>
+
+</div>
+</body>
+</html>

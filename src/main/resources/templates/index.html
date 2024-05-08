@@ -3,7 +3,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <title>Mayhm's Review</title>
+    <title>The Fig Tree</title>
     <meta name="author" content="John Paul Jayme"/>
     <meta name="description" content="My personal blog, engulfing my idiosyncracies
  concerning the world, my love for the minuteness of the day, the power of literature
@@ -11,15 +11,21 @@
 <!--    <script defer src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>-->
     <script defer src="/js/htmx.min.js"></script>
     <script defer src="/js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{css/index.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{css/createpost.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{css/post.css}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
 </head>
 <body hx-boost="true">
 <div class='wrapper'>
     <header>
-        <h1 hx-get="/home" hx-target="body">Mayhm's Musings</h1>
-        <h2>Literature, Film, Music and the Consciousness!</h2>
+        <h1 hx-get="/home" hx-target="body">THE FIG TREE</h1>
+        <div class="hamburger" onclick="openNav()">
+            <i class="fa fa-bars fa-2x"></i>
+        </div>
     </header>
 
     <nav>
@@ -29,22 +35,29 @@
             <a href=''>Github</a>
         </div>
     </nav>
-    <span onclick="openNav()">Open</span>
-    <main>
-        <button hx-get="/blog/createPost"
-            hx-target="main"
-        >Create a new blog post!</button>
-        <div th:each="post : ${posts}">
-            <article>
-                <div>
-                    <h2 th:text="${post.title}"
-                        th:hx-get="@{/blog/{id}(id=${post.id})}"
-                        hx-target="main"
-                    >Dummy title</h2>
+
+    <main class="main__wrapper">
+<!--        <button hx-get="/blog/createPost"-->
+<!--            hx-target="main"-->
+<!--        >Create a new blog post!</button>-->
+<!--        <div th:replace="~{fragments ::excerpt (${post}) }"></div>-->
+        <div th:replace="~{fragments ::feature (${posts[0]}) }"
+            class="feature"
+        ></div>
+        <div id="__posts">
+
+            <!-- Filter column -->
+            <div class="filter">
+               Purrr
+            </div>
+            <!-- Two columns for the posts -->
+            <div class="other_posts">
+                <div th:each="post, iterStat : ${posts}" th:if="${!iterStat.first}">
+                    <div th:replace="~{fragments ::excerpt (${post}) }"></div>
                 </div>
-                <h4 th:text="${post.dateCreated}">Current date</h4>
-            </article>
+            </div>
         </div>
+
     </main>
     <footer>
         Footer

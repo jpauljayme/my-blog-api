@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -29,8 +30,12 @@ public class BlogController {
 
     @GetMapping(path = "/blog")
     String getBlogPosts(Model model) {
+        List<Post> allPosts = blogService.getAllPosts();
+        for (Post p : allPosts) {
+            p.setImagePath(cloudfrontUrl + "/" + p.getImagePath());
+        }
 
-        model.addAttribute("posts", blogService.getAllPosts());
+        model.addAttribute("posts", allPosts );
 
         return "index";
     }

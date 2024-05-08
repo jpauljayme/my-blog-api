@@ -1,9 +1,9 @@
 #post__wrapper{
     display:grid;
     grid-template-rows: 500px 50px 50px 1fr 20px;
-    grid-template-column: 100px;
+    grid-template-columns: 100px;
     justify-items: center;
-    padding 20px;
+    padding: 20px;
 }
 
 #post__wrapper div:first-child{

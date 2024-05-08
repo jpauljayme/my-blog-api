@@ -12,23 +12,23 @@ VALUES('Notes from the Underground by Fyodor Dostoevsky',
  There is a lot to unpack - the first part of "Underground" brim of philosophical ruminations. On the next part, Apropos of the Wet Snow, his preclude to what has happened before he went underground, a man full of avoidance, anguish, sadness, albeit an self-awareness that placates him at his feet.
 
  Time will tell when I fully resonate and be objective in the earnest manner. I will read this again sometime this year, after further enrichment of the mind.',
-'book_mansSearchForMeaning.jpg');
+'book_notes.jpg');
 
 -- Spring Start Here: Learn what you need and learn it well
-INSERT INTO tbl_post
-(title, author, date_created, date_updated, body, image_path)
-VALUES('Spring Start Here: Learn what you need and learn it well by Laurentiu Spilca',
-'John Paul Jayme',
-'2024-02-14' ,
-'2024-02-14' ,
-'The right point of reintroduction to the Spring ecosystem, given the gargantuan project it possess. As a refresher, these milestones have been covered :
- 1. Spring Core, including Inversion of Control, Dependency Injection, and Bean Lifecycle.
- 2. Spring AOP, the ever elusive yet understated hero of preemptive management of methods via advices and aspect.
- 3. Spring Boot, the beacon amongst the fauna with its annotation over configuration approach to provide a more out-of-the box toolset for every developer. No more boilerplate code to ponder over hours on end!
- 3. Spring Web, the must-know for every developer; from REST endpoints to managing HTTP server-client relationship.
- 4. Spring Data, including Transactions, Data Sources, JDBC, and the simplification of the data persistence layer!
- 5. Short and concise revisit on Junit Unit Testing and Spring Integration Tests! Mocking is mostly a complex syntactical jungle and I need to do more hands on tests.',
-'book_mansSearchForMeaning.jpg');
+--INSERT INTO tbl_post
+--(title, author, date_created, date_updated, body, image_path)
+--VALUES('Spring Start Here: Learn what you need and learn it well by Laurentiu Spilca',
+--'John Paul Jayme',
+--'2024-02-14' ,
+--'2024-02-14' ,
+--'The right point of reintroduction to the Spring ecosystem, given the gargantuan project it possess. As a refresher, these milestones have been covered :
+-- 1. Spring Core, including Inversion of Control, Dependency Injection, and Bean Lifecycle.
+-- 2. Spring AOP, the ever elusive yet understated hero of preemptive management of methods via advices and aspect.
+-- 3. Spring Boot, the beacon amongst the fauna with its annotation over configuration approach to provide a more out-of-the box toolset for every developer. No more boilerplate code to ponder over hours on end!
+-- 3. Spring Web, the must-know for every developer; from REST endpoints to managing HTTP server-client relationship.
+-- 4. Spring Data, including Transactions, Data Sources, JDBC, and the simplification of the data persistence layer!
+-- 5. Short and concise revisit on Junit Unit Testing and Spring Integration Tests! Mocking is mostly a complex syntactical jungle and I need to do more hands on tests.',
+--'book_mansSearchForMeaning.jpg');
 
 -- Man's search for meaning
 INSERT INTO tbl_post
@@ -53,16 +53,16 @@ VALUES('Virginia Woolf and Vita Sackville-West: Love Letters',
   Virginia''s prose, albeit not having read her works yet, is beguiling like lark''s flight after a downpour. The sensitivity she allures the minds of most bountiful dressing. Juxtaposed is Vita''s often lengthy passages of her colorful social life, of her multiple publications to Hogarth Press, and the donkey that she is, of her myriad of lovers a point of jealousy to Woolf. An affair worth acquainted into. Opening the portal to the history and literature on the onslaught of World War 2.
 
   Let me perish and find the diary of my life interwoven with gripping passion, enduring grief, wearying acceptance, and the joy of continuing to live in spite of it all.',
-'book_virginiaVitaloveLetters.jpg');
+'book_virginiaVitaLoveLetters.jpg');
 
-INSERT INTO tbl_post
-(title, author, date_created, date_updated, body, image_path)
-VALUES('Talking to Ourselves  by Andrés Neuman',
-'John Paul Jayme',
-'2024-03-21' ,
-'2024-03-21' ,
-'A raw glimpse of the conversations we tell ourselves in the time of illness - an extent of the brutal, searing, abandonment, confusion, and existential pain that maneuvers each person on the equation. The writing is digestable! Marinated with multitple references to literature dealing with disease, death, grief, and surviving them, and I will add them to my list as a person who suffers from chronic pain and grief.',
-'book_talkingToOurselves.jpg');
+--INSERT INTO tbl_post
+--(title, author, date_created, date_updated, body, image_path)
+--VALUES('Talking to Ourselves  by Andrés Neuman',
+--'John Paul Jayme',
+--'2024-03-21' ,
+--'2024-03-21' ,
+--'A raw glimpse of the conversations we tell ourselves in the time of illness - an extent of the brutal, searing, abandonment, confusion, and existential pain that maneuvers each person on the equation. The writing is digestable! Marinated with multitple references to literature dealing with disease, death, grief, and surviving them, and I will add them to my list as a person who suffers from chronic pain and grief.',
+--'book_talkingToOurselves.jpg');
 
 -- Hunger
 INSERT INTO tbl_post
