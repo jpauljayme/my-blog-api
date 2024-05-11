@@ -1,16 +1,16 @@
 body{
-    margin: 0;
+    margin: 50px;
     padding: 0;
     height: 100%;
     font-family: sans-serif;
-
+    background-color: hsl(90, 40%, 90%);
 }
 h1, h2{
     font-family: "Handlee"
 }
-.wrapper{
+/*.wrapper{
     display: grid;
-    grid-template-rows: min-content 1fr 4rem;
+    grid-template-rows: min-content auto 4rem;
     grid-template-columns: 1fr;
 
     grid-template-areas:
@@ -19,20 +19,45 @@ h1, h2{
     'footer footer' ;
 
     min-height: 100%;
+}*/
+
+.grid__wrapper{
+    display: grid;
+    grid-template-rows: max-content max-content 1fr 5rem;
+    grid-template-areas:
+    'header_main'
+    'feature_content'
+    'posts'
+    'footer';
+    gap: 20px;
+}
+#header__main{
+    grid-area: header_main;
+    position: relative;
+    height: 100vh;
+    background-color: white;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    padding: 10px;
+    color:white;
 }
 
 nav{
     display: grid;
     grid-area: navbar;
-    background-color: beige;
     height: 0%;
     width: 100%;
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 3; /* Sit on top */
     right: 0;
     top: 0;
-    background-color: 	hsl(82, 39%, 30%); /* Black fallback color */
-    /* background-color: 	hsl(82, 39%, 30% / 90%); \Black w/opacity */
+    background-color: 	hsl(300, 30%, 30%); /* Black fallback color */
     overflow-y: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -63,24 +88,26 @@ nav a:hover{
     color: blanchedalmond;
 }
 
-
 header{
     display: grid;
-    grid-area: header;
+    /*grid-area: header;*/
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    padding: 10px;
+
 }
 
 header > h1 {
     grid-column: 1 / 2;
+    padding-left: 50px;
 }
 
 .hamburger {
     grid-column: 3 / 4;
-    color: hsl(82, 39%, 30%);
+    padding-right: 50px;
 }
 
-.main__wrapper{
+/*.main__wrapper{
     grid-area: main;
     min-height: 600px;
 
@@ -90,26 +117,65 @@ header > h1 {
     grid-template-areas:
     'feature feature feature'
     'posts posts posts';
+} */
+
+#feature_wrapper {
+        /*  height: 100%;
+        top: 0;
+        position: absolute;
+        left: 0;
+        width: 100%; */
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+        z-index: 2;
+        display: grid;
+        grid-template-rows: min-content 1fr;
 }
 
-.main__feature{
-    grid-area:feature;
-      display: grid;
-      grid-template-columns: 2fr 0.8fr;
-      grid-template-rows: 400px;
-}
-
-.main__feature:first-child img {
+.feature:first-child{
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Ensures the container covers the viewport height */
+    overflow: hidden;
+    /* position: fixed; Fixed to the viewport
+    top: 0;
+    left: 0; */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
 }
+
+.feature:first-child img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+}
+
+.feature:second-child{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    background: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+
 #__posts{
     grid-area: posts;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
+    'header header header'
     'filter other_posts other_posts'
     'filter other_posts other_posts';
+    background-color: white;
+    margin-top:150px;
+    gap: 25px;
+    padding-top: 100px;
+}
+#__posts:first-child{
+    grid-area: header;
 }
 
 .filter{
@@ -125,6 +191,7 @@ header > h1 {
 
 footer{
     grid-area: footer;
+    background-color: white;
 }
 
 a {
@@ -135,4 +202,16 @@ a {
 .excerpt img{
         max-width: 100%;
         height: 100%;
+}
+
+#feature_content{
+    grid-area: feature_content;
+    background-color: hsl(90, 40%, 80%);
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    padding:20px;
+    border-radius:20px;
+}
+.__content{
+    background-color: white;
 }

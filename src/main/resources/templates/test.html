@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlap Header Text with Image</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container {
+            position: relative; /* Set container as relative positioning for absolute positioning inside */
+            height: 100vh; /* Full viewport height */
+        }
+        header {
+            position: absolute; /* Position header absolutely */
+            top: 0; /* Align header to top of container */
+            left: 0; /* Align header to left of container */
+            width: 100%; /* Full width of container */
+            z-index: 1; /* Ensure header is above other content */
+            padding: 10px;
+            /* Add any other styles for your header */
+        }
+        .second-div {
+            position: absolute; /* Position second div absolutely */
+            top: 0; /* Align second div to top of container */
+            left: 0; /* Align second div to left of container */
+            width: 100%; /* Full width of container */
+            height: 100%; /* Full height of container */
+            overflow: hidden; /* Hide overflowing content */
+        }
+        .second-div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire div while maintaining aspect ratio */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>This is a header</h1>
+    </header>
+    <div class="second-div">
+        <img src="https://ddoo2mtjx0c7b.cloudfront.net/book_notes.jpg" alt="Second Image">
+    </div>
+</div>
+</body>
+</html>

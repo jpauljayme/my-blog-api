@@ -6,25 +6,26 @@
 </head>
 <body>
 
-<article th:fragment="feature (post)"
-         class="main__feature"
->
-    <div>
-        <img th:src="${post.imagePath}"
-             class="post__img"/>
-    </div>
-    <div>
-        <h2 th:text="${post.title}"
-            th:hx-get="@{/blog/{id}(id=${post.id})}"
-            hx-target="main"
-        >Dummy title</h2>
-        <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
-    </div>
 
-</article>
+<div th:fragment="feature (post)"
+    class="feature"
+>
+    <div class="__img__container">
+        <img th:src="${post.imagePath}"/>
+    </div>
+</div>
+
+<div th:fragment="featureContent (post)"
+     id="feature_content">
+    <h2 th:text="${post.title}"
+        th:hx-get="@{/blog/{id}(id=${post.id})}"
+        hx-target="main"
+    >Dummy title</h2>
+    <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
+</div>
 
 <article th:fragment="excerpt (post)"
-    class="excerpt"
+         class="excerpt"
 >
     <div>
         <img th:src="${post.imagePath}"
