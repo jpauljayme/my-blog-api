@@ -22,20 +22,17 @@
 </head>
 <body hx-boost="true">
 <div class='grid__wrapper'>
-    <div id="header__main">
-        <header>
-            <h1 hx-get="/home" hx-target="body">THE FIG TREE</h1>
-            <div class="hamburger" onclick="openNav()">
-                <i class="fa fa-bars fa-2x"></i>
-            </div>
-        </header>
-        <main id="feature_wrapper"
-              th:insert="~{fragments ::feature (${posts[0]}) }"
-        >
-        </main>
+    <header>
+        <h1 hx-get="/home" hx-target="body">THE FIG TREE</h1>
+        <div class="hamburger" onclick="openNav()">
+            <i class="fa fa-bars fa-2x"></i>
+        </div>
+    </header>
+    <div
+          th:replace="~{fragments ::feature (${posts[0]}) }"
+    >
     </div>
-    <div th:insert="~{fragments ::featureContent (${posts[0]}) }">
-    </div>
+
     <div id="__posts">
         <div><h2>Latest posts</h2></div>
         <!-- Filter column -->
@@ -49,26 +46,6 @@
             </div>
         </div>
     </div>
-    <!--        <div id="__posts">-->
-
-    <!--            &lt;!&ndash; Filter column &ndash;&gt;-->
-    <!--            <div class="filter">-->
-    <!--                Purrr-->
-    <!--            </div>-->
-    <!--            &lt;!&ndash; Two columns for the posts &ndash;&gt;-->
-    <!--            <div class="other_posts">-->
-    <!--                <div th:each="post, iterStat : ${posts}" th:if="${!iterStat.first}">-->
-    <!--                    <div th:replace="~{fragments ::excerpt (${post}) }"></div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    <header>-->
-    <!--        <h1 hx-get="/home" hx-target="body">THE FIG TREE</h1>-->
-    <!--        <div class="hamburger" onclick="openNav()">-->
-    <!--            <i class="fa fa-bars fa-2x"></i>-->
-    <!--        </div>-->
-    <!--    </header>-->
-
     <nav>
         <div class="nav__content">
             <span onclick="closeNav()">Close</span>
@@ -76,31 +53,6 @@
             <a href=''>Github</a>
         </div>
     </nav>
-
-    <!--    <main class="feature">-->
-    <!--        <button hx-get="/blog/createPost"-->
-    <!--            hx-target="main"-->
-    <!--        >Create a new blog post!</button>-->
-    <!--        <div th:replace="~{fragments ::excerpt (${post}) }"></div>-->
-    <!--        <div th:replace="~{fragments ::feature (${posts[0]}) }"-->
-    <!--            class="feature"-->
-    <!--        ></div>-->
-    <!--    </main>-->
-    <!--    <div>-->
-    <!--        <div id="__posts">-->
-
-    <!--            &lt;!&ndash; Filter column &ndash;&gt;-->
-    <!--            <div class="filter">-->
-    <!--                Purrr-->
-    <!--            </div>-->
-    <!--            &lt;!&ndash; Two columns for the posts &ndash;&gt;-->
-    <!--            <div class="other_posts">-->
-    <!--                <div th:each="post, iterStat : ${posts}" th:if="${!iterStat.first}">-->
-    <!--                    <div th:replace="~{fragments ::excerpt (${post}) }"></div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
     <footer>
         Footer
     </footer>

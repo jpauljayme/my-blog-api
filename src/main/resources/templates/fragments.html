@@ -7,22 +7,20 @@
 <body>
 
 
-<div th:fragment="feature (post)"
-    class="feature"
+<main th:fragment="feature (post)"
+      id="feature_wrapper"
 >
-    <div class="__img__container">
-        <img th:src="${post.imagePath}"/>
+    <div
+         th:style="'background: url(' + ${post.imagePath} + ') no-repeat center center/cover;'">
     </div>
-</div>
-
-<div th:fragment="featureContent (post)"
-     id="feature_content">
-    <h2 th:text="${post.title}"
-        th:hx-get="@{/blog/{id}(id=${post.id})}"
-        hx-target="main"
-    >Dummy title</h2>
-    <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
-</div>
+    <div id="feature_content">
+        <h2 th:text="${post.title}"
+            th:hx-get="@{/blog/{id}(id=${post.id})}"
+            hx-target="body"
+        >Dummy title</h2>
+        <h4 th:text="${#strings.substring(post.body, 0, 200)} + '...'"></h4>
+    </div>
+</main>
 
 <article th:fragment="excerpt (post)"
          class="excerpt"

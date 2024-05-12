@@ -40,6 +40,13 @@ public class BlogController {
         return "index";
     }
 
+    @GetMapping(path = "/test")
+    String test(Model model) {
+
+        return "test";
+    }
+
+
     @GetMapping(path = "/blog/{id}")
     String getBlogPostById(@PathVariable int id , Model model) {
 
