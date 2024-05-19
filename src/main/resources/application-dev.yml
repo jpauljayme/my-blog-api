@@ -16,3 +16,23 @@ server:
 
 cloudfront:
   url: https://ddoo2mtjx0c7b.cloudfront.net
+
+springdoc:
+  api-docs:
+    enabled: true
+
+  info:
+    title: 'The Fig Tree API'
+    description: 'The fig tree is a personal blog of John Paul Jayme, where he curates his reviews on Literature, Film, Music, and his dwellings with his cats and dogs!'
+    version: 'v1'
+    contact:
+      name: 'The Fig Tree Support'
+      url: 'https://jayme-blog-api.onrender.com/'
+      email: 'jp.r.jayme@gmail.com'
+  servers:
+    - url: 'localhost:8083/v1/api/theFigTree'
+      description: 'Development server'
+    - url: 'https://jayme-blog-api.onrender.com/'
+      description: 'Production server'
+  swagger-ui:
+    path: /swagger-ui.html

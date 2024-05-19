@@ -8,7 +8,7 @@
     <meta name="description" content="My personal blog, engulfing my idiosyncracies
  concerning the world, my love for the minuteness of the day, the power of literature
  inhabiting the landscapes of my mind, and the power programming has given me."/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script defer src="/js/htmx.min.js"></script>
     <script defer src="/js/script.js"></script>
@@ -28,21 +28,17 @@
             <i class="fa fa-bars fa-2x"></i>
         </div>
     </header>
-    <div
-          th:replace="~{fragments ::feature (${posts[0]}) }"
-    >
+    <div th:replace="~{fragments ::feature (${featurePost}) }">
     </div>
-
-    <div id="__posts">
-        <div><h2>Latest posts</h2></div>
-        <!-- Filter column -->
-        <div class="filter">
-            Purrr
-        </div>
-        <!-- Two columns for the posts -->
-        <div class="other_posts">
-            <div th:each="post, iterStat : ${posts}" th:if="${!iterStat.first}">
-                <div th:replace="~{fragments ::excerpt (${post}) }"></div>
+<!--    th:if="${!postStat.first}"-->
+    <div class="posts">
+        <div th:each="partition, partitionStat : ${partitionedListOfPosts}">
+            <div class="posts__row"
+                 th:style="'grid-template-columns: repeat(' + ${partition.size()} + ', 1fr);'">
+                <article th:each="post, postStat : ${partition}"
+                     class="posts__post">
+                    <div th:replace="~{fragments ::excerpt(${post})}"></div>
+                </article>
             </div>
         </div>
     </div>

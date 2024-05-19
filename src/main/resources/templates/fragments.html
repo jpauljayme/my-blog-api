@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -23,11 +24,10 @@
 </main>
 
 <article th:fragment="excerpt (post)"
-         class="excerpt"
+         class="posts__post__article"
 >
     <div>
-        <img th:src="${post.imagePath}"
-             class="post__img"/>
+        <img th:src="${post.imagePath}"/>
     </div>
     <div>
         <h2 th:text="${post.title}"
@@ -35,7 +35,9 @@
             hx-target="main"
         >Dummy title</h2>
     </div>
-    <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
+    <div>
+        <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
+    </div>
 </article>
 </body>
 </html>
