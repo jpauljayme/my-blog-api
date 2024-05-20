@@ -31,13 +31,14 @@
     <div th:replace="~{fragments ::feature (${featurePost}) }">
     </div>
 <!--    th:if="${!postStat.first}"-->
+<!--    th:style="'grid-template-columns: repeat(' + ${partition.size()} + ', 1fr);'"-->
     <div class="posts">
+        <div>Latest reviews</div>
         <div th:each="partition, partitionStat : ${partitionedListOfPosts}">
-            <div class="posts__row"
-                 th:style="'grid-template-columns: repeat(' + ${partition.size()} + ', 1fr);'">
+            <div th:class="|posts__row--${(partitionStat.index % 3) + 1}|">
                 <article th:each="post, postStat : ${partition}"
                      class="posts__post">
-                    <div th:replace="~{fragments ::excerpt(${post})}"></div>
+                    <div th:replace="~{fragments ::excerpt( ${post}, ${(partitionStat.index % 3) + 1} )}"></div>
                 </article>
             </div>
         </div>

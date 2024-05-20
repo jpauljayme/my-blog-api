@@ -23,21 +23,21 @@
     </div>
 </main>
 
-<article th:fragment="excerpt (post)"
-         class="posts__post__article"
+<article th:fragment="excerpt (post, rowNumber)"
+         th:class="'posts__article-' + ${rowNumber}"
 >
-    <div>
+    <section class="posts__post__article__img">
         <img th:src="${post.imagePath}"/>
-    </div>
-    <div>
+    </section>
+    <section class="posts__post__article__content">
         <h2 th:text="${post.title}"
             th:hx-get="@{/blog/{id}(id=${post.id})}"
             hx-target="main"
-        >Dummy title</h2>
-    </div>
-    <div>
+        >
+            Dummy title
+        </h2>
         <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
-    </div>
+    </section>
 </article>
 </body>
 </html>
