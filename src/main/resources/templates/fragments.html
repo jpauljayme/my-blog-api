@@ -8,36 +8,52 @@
 <body>
 
 
-<main th:fragment="feature (post)"
-      id="feature_wrapper"
+<div th:fragment="feature (post)"
+      class="feature_wrapper"
 >
     <div
          th:style="'background: url(' + ${post.imagePath} + ') no-repeat center center/cover;'">
     </div>
-    <div id="feature_content">
+    <div class="feature_content">
         <h2 th:text="${post.title}"
             th:hx-get="@{/blog/{id}(id=${post.id})}"
             hx-target="body"
         >Dummy title</h2>
         <h4 th:text="${#strings.substring(post.body, 0, 200)} + '...'"></h4>
     </div>
-</main>
+</div>
 
 <article th:fragment="excerpt (post, rowNumber)"
+         class="posts_article"
          th:class="'posts__article-' + ${rowNumber}"
 >
-    <section class="posts__post__article__img">
+    <section class="posts__article__img">
         <img th:src="${post.imagePath}"/>
     </section>
-    <section class="posts__post__article__content">
-        <h2 th:text="${post.title}"
-            th:hx-get="@{/blog/{id}(id=${post.id})}"
-            hx-target="main"
-        >
-            Dummy title
-        </h2>
-        <h4 th:text="${#strings.substring(post.body, 0, 100)} + '...'"></h4>
+    <section class="posts__article__body">
+       <div>
+           <h2 th:text="${post.title}">
+           </h2>
+       </div>
+        <div>
+            <h4 th:text="${#strings.substring(post.body, 0, 150)} + '...'"></h4>
+        </div>
     </section>
 </article>
+
+
+<main th:fragment="postDetail (post)">
+    <div
+            th:style="'background: url(' + ${post_url} + ') no-repeat center center/cover;'">
+    </div>
+    <div class="feature_content">
+        <h2 th:text="${post.title}"
+            th:hx-get="@{/blog/{id}(id=${post.id})}"
+            hx-target="body"
+        >Dummy title</h2>
+        <h4 th:text="${post.body}"></h4>
+    </div>
+</main>
+
 </body>
 </html>

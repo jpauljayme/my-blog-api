@@ -65,7 +65,7 @@ public class BlogController {
 
     @GetMapping(path = "/blog/{id}")
     String getBlogPostById(@PathVariable int id , Model model) {
-
+        System.out.println("ID :" + id);
         Optional<Post> post = blogService.getPostById(id);
 
         if(post.isPresent()){
@@ -76,7 +76,7 @@ public class BlogController {
             model.addAttribute("error", "Post not found");
         }
 
-        return "post";
+        return "fragments :: postDetail";
     }
 
 
